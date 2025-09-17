@@ -31,7 +31,10 @@ namespace ConsoleApp1
             Console.WriteLine($"X = {X}, Y = {Y}");
         }
 
-
+        public override string ToString()
+        {
+            return $"X = {X}, Y = {Y}";  
+        }
 
         public static Rectangle operator +(Rectangle rectangle, Rectangle rectangle1)
         {
