@@ -37,37 +37,49 @@ namespace ConsoleApp1
         {
             return new Rectangle(rectangle.X + rectangle1.X, rectangle.Y + rectangle1.Y);
         }
-
         public static Rectangle operator +(Rectangle rectangle, double num)
         {
             return new Rectangle(rectangle.X + num, rectangle.Y + num);
         }
-
         public static Rectangle operator +(double num, Rectangle rectangle)
         {
             return new Rectangle(rectangle.X + num, rectangle.Y + num);
         }
-
         public static Rectangle operator -(Rectangle rectangle, Rectangle rectangle1)
         {
             if (rectangle1.X > rectangle.X || rectangle1.Y > rectangle.Y)
                 throw new Exception();
             return new Rectangle(rectangle.X - rectangle1.X, rectangle.Y - rectangle1.Y);
         }
-
         public static Rectangle operator -(Rectangle rectangle, double num)
         {
-            if(num > rectangle.X || num > rectangle.Y )
+            if (num > rectangle.X || num > rectangle.Y)
                 throw new Exception();
             return new Rectangle(rectangle.X - num, rectangle.Y - num);
         }
-
         public static Rectangle operator -(double num, Rectangle rectangle)
         {
-            if(num < rectangle.X || num < rectangle.Y)
+            if (num < rectangle.X || num < rectangle.Y)
                 throw new Exception();
-            return new Rectangle(num - rectangle.X,num - rectangle.Y);
+            return new Rectangle(num - rectangle.X, num - rectangle.Y);
         }
+
+        public static Rectangle operator++(Rectangle r)
+        {
+            r.X++;
+            r.Y++;
+            return r;
+        }
+        public static Rectangle operator--(Rectangle r) 
+        { 
+            if(r.X <= 1 || r.Y <= 1)
+                throw new Exception();
+
+            r.X--; 
+            r.Y--;
+            return r;
+        }
+
 
     }
 }
