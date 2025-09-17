@@ -33,7 +33,7 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return $"X = {X}, Y = {Y}";  
+            return $"X = {X}, Y = {Y}";
         }
 
         public static Rectangle operator +(Rectangle rectangle, Rectangle rectangle1)
@@ -67,21 +67,29 @@ namespace ConsoleApp1
             return new Rectangle(num - rectangle.X, num - rectangle.Y);
         }
 
-        public static Rectangle operator++(Rectangle r)
+        public static Rectangle operator ++(Rectangle r)
         {
             r.X++;
             r.Y++;
             return r;
         }
-        public static Rectangle operator--(Rectangle r) 
-        { 
-            if(r.X <= 1 || r.Y <= 1)
+        public static Rectangle operator --(Rectangle r)
+        {
+            if (r.X <= 1 || r.Y <= 1)
                 throw new Exception();
 
-            r.X--; 
+            r.X--;
             r.Y--;
             return r;
         }
+
+        public static bool operator ==(Rectangle r1, Rectangle r2) { return r1.Y == r2.Y && r1.X == r1.X; }
+        public static bool operator !=(Rectangle r1, Rectangle r2) { return !(r1 == r2); }
+        public static bool operator >=(Rectangle r1, Rectangle r2) { return r1.Y >= r2.Y && r1.X >= r2.X; }
+        public static bool operator <=(Rectangle r1, Rectangle r2) { return (r1.X <= r2.X) && (r1.Y <= r2.Y); }
+        public static bool operator <(Rectangle r1, Rectangle r2) { return !(r1 >= r2); }
+        public static bool operator >(Rectangle r1, Rectangle r2) { return !(r1 <= r2); }
+
 
 
     }
